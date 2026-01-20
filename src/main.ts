@@ -10,8 +10,10 @@ async function bootstrap() {
     ? process.env.CORS_ORIGIN.split(',')
     : ['http://localhost:5173'];
 
+  // Xóa hoặc comment lại đoạn const allowedOrigins cũ đi cũng được
+
   app.enableCors({
-    origin: allowedOrigins,
+    origin: true, // <--- SỬA THÀNH TRUE (Cho phép tất cả, tự động khớp với người gọi)
     methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTIONS'],
     credentials: true,
   });
